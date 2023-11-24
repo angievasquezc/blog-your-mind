@@ -14,8 +14,17 @@ try{
     
 }
 
-const loginUser = (req, res)=>{
-    res.json("hola login")
+const loginUser = async(req, res)=>{
+    // console.log(req.body.email)
+    // console.log(req.body.password)
+    var result = await User.findOne({email: req.body.email, password: req.body.password})
+    if (result != null){
+        res.status(200).json(true)
+    }else{
+        res.status(200).json(false)
+    }
+    console.log(result)//esto me arroja null
 }
+
 
 export {registerUser, loginUser}
