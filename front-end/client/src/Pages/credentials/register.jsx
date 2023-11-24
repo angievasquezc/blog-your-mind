@@ -11,6 +11,19 @@ export const Register = ()=>{
     const handleForm = (e)=>{
         e.preventDefault()
     }
+
+    const registerUser = ()=>{
+        if (nameRegister !="" && emailRegister !="" && passwordRegister != "" && confirmPasswordRegister != ""){
+            if(passwordRegister == confirmPasswordRegister){
+
+            }else{
+                alert("passwords should match")
+            }
+        }else{
+            alert("complete de form")
+        }
+            
+    }
     return(
         <div>
             <h1>Register</h1>
@@ -23,7 +36,7 @@ export const Register = ()=>{
                 <input type="password" name="password" id="password" placeholder="enter your password" value={passwordRegister} onChange={(e)=>setPasswordRegister(e.target.value)}></input>
                 <label htmlFor="password">Confirm Password</label>
                 <input type="password" name="password" id="password" placeholder="enter your password" value={confirmPasswordRegister} onChange={(e)=>setConfirmPasswordRegister(e.target.value)}></input>
-                <button>Register</button>
+                <button onClick={registerUser}>Register</button>
             </form>
         </div>
     )
