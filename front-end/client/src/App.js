@@ -1,13 +1,20 @@
-import { BrowserRouter, Routes, Route}
-import { PostList } from './Components/postLists/postLists';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { PostList } from './Pages/postLists/postLists';
 import './index.css'
+import { Login } from './Pages/credentials/login';
+import { Register } from './Pages/credentials/register';
 
 
 function App() {
   return (
     <div >
-      <p className='text-6xl text-red-500'>hola react</p>
-   <PostList/>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<PostList></PostList>}></Route>
+          <Route path='/Login' element={<Login></Login>}></Route>
+          <Route path='/register' element={<Register></Register>}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

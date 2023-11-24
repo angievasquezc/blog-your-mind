@@ -1,7 +1,7 @@
 export const PostList = ()=>{
     return(
         <div >
-            Hello posts Lists
+            <button>Log out</button>
         </div>
     )
         
