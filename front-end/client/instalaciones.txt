@@ -1,0 +1,6 @@
+1) npm i axios
+2)npm i react-router-dom
+3) tailwind
+    npm install -D tailwindcss
+    npx tailwindcss init
+
