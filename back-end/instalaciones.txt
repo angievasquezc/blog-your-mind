@@ -1,0 +1,13 @@
+1) npm init -y
+2) 
+    consola = npm i nodemon 
+    consola= nodemon server.js
+    package json/scripts = "start": "nodemon server.js"
+3) npm i express
+4) npm i cors
+5) npm i mongoose
+6) npm i bcrypt
+7) npm i jsonwebtoken
+8) package json = "type": "module"
+    
+
