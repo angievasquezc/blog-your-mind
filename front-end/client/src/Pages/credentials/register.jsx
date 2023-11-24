@@ -1,4 +1,5 @@
 import { useState } from "react"
+import axios from "axios"
 
 export const Register = ()=>{
     const[nameRegister, setNameRegister]= useState("")
@@ -12,16 +13,33 @@ export const Register = ()=>{
         e.preventDefault()
     }
 
-    const registerUser = ()=>{
-        if (nameRegister !="" && emailRegister !="" && passwordRegister != "" && confirmPasswordRegister != ""){
-            if(passwordRegister == confirmPasswordRegister){
-
-            }else{
-                alert("passwords should match")
-            }
-        }else{
-            alert("complete de form")
+    const registerUser = async()=>{
+        if (nameRegister =="" || emailRegister =="" || passwordRegister == "" || confirmPasswordRegister == ""){
+            alert("complete the form");
+            return;
         }
+        if(passwordRegister != confirmPasswordRegister){
+            alert("passwords should match");
+            return;
+        }
+        try{
+            var obj={
+                "name": nameRegister,
+                "email": emailRegister,
+                "password": passwordRegister
+            };
+          var response= await axios.post("http://localhost:8080/api/user/register", obj)
+          if(response.status!= 200){
+            alert("try again");
+            return;
+          }
+          alert("Congratulations!!! you are already registered")
+        }catch(e){
+            alert(e.response.data.message)
+        }
+        
+
+
             
     }
     return(
@@ -34,8 +52,8 @@ export const Register = ()=>{
                 <input type="email" name="email" id="email" placeholder="enter your email" value={emailRegister} onChange={(e)=>setEmailRegister(e.target.value)}></input>
                 <label htmlFor="password">Password</label>
                 <input type="password" name="password" id="password" placeholder="enter your password" value={passwordRegister} onChange={(e)=>setPasswordRegister(e.target.value)}></input>
-                <label htmlFor="password">Confirm Password</label>
-                <input type="password" name="password" id="password" placeholder="enter your password" value={confirmPasswordRegister} onChange={(e)=>setConfirmPasswordRegister(e.target.value)}></input>
+                <label htmlFor="confirmPassword">Confirm Password</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="enter your password" value={confirmPasswordRegister} onChange={(e)=>setConfirmPasswordRegister(e.target.value)}></input>
                 <button onClick={registerUser}>Register</button>
             </form>
         </div>
