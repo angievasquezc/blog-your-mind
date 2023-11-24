@@ -4,6 +4,6 @@ const router = express.Router();
 
 
 router.post("/api/user/register", userCtrl.registerUser)
-router.post("api/user/login", userCtrl.loginUser)
+router.post("/api/user/login", userCtrl.loginUser)
 
 export {router};
