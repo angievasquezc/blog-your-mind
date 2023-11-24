@@ -3,7 +3,6 @@ import cors from 'cors';
 import mongoose from "mongoose"
 import * as userRoutes from './routes/userRoutes.js';
 
-
 const app = express();
 app.use(cors());
 
@@ -18,6 +17,6 @@ mongoose.connect("mongodb://localhost:27017/blog")
 
 app.use(express.json());
 
-app.use(userRoutes.router)
+app.use(userRoutes.router);
 
 app.listen(8001)
