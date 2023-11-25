@@ -1,12 +1,13 @@
 import { NavBar } from "../../Components/header/navBar"
 
-export const PostList = ()=>{
+
+export const MyProfile = ()=>{
+
     return(
-        <div >
+
+        <div>
             <NavBar></NavBar>
-            <p>here goes the articles</p>
+            <h1>This is my profile</h1>
         </div>
     )
-        
-    
 }
