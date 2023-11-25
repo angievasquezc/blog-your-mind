@@ -1,5 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
+
 
 export const Register = ()=>{
     const[nameRegister, setNameRegister]= useState("")
@@ -8,6 +10,7 @@ export const Register = ()=>{
     const[confirmPasswordRegister, setConfirmPasswordRegister]= useState("")
    
   
+    const navigate= useNavigate();
 
     const handleForm = (e)=>{
         e.preventDefault()
@@ -38,8 +41,7 @@ export const Register = ()=>{
             alert(e.response.data.message)
         }
         
-
-
+        navigate("/login")
             
     }
     return(
