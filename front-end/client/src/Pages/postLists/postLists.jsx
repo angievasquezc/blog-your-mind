@@ -16,8 +16,19 @@ export const PostList = ()=>{
 
     return(
         <div >
-            <NavBar></NavBar>
+            <header>
+                <NavBar></NavBar>
+            </header>
+           
+            <body class="max-w-4xl mx-auto">
+            <button className="text-3xl">
+               &#9776;
+            </button>
             <p>here goes the articles</p>
+            <h1>Hello articles </h1>
+
+            </body>
+            
         </div>
     )
         
