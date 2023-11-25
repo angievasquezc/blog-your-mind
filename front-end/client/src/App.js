@@ -4,7 +4,7 @@ import './index.css'
 import { Login } from './Pages/credentials/login';
 import { Register } from './Pages/credentials/register';
 import { MyProfile } from './Pages/myProfile/myProfile';
-import { NavBar } from './Components/header/navBar';
+
 
 
 function App() {

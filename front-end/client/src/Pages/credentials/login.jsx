@@ -30,6 +30,8 @@ export const Login = ()=>{
         alert("wrong password or email");
         return;
     }
+    //guardar un dato en el local storage que indique si está o no loggeado
+    localStorage.setItem("isLogged", true)
         navigate("/")
     
     };
