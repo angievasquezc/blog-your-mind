@@ -2,11 +2,14 @@ import { useNavigate } from "react-router-dom"
 import { NavLink} from "react-router-dom";
 export const NavBar = ()=>{
 
-    const navigate = useNavigate();
+    const navigate=useNavigate();
     
 
     const backToProfile =()=>{
-        navigate=('/profile')
+        navigate('/myProfile')
+    }
+    const backToPostLists =()=>{
+        navigate('/')
     }
 
     //metodo logout
@@ -31,6 +34,7 @@ export const NavBar = ()=>{
                     
                     <nav className="hidden sm:block space-x-8 text-xl" aria-label="main">
                         <button className="px-6  mx-5 hover:opacity-90" onClick={backToProfile}>Profile</button>
+                        <button className="px-6  mx-5 hover:opacity-90" onClick={backToPostLists}>Articles</button>
                         <button className="px-6 hover:opacity-90"  onClick={logOut}>Logout</button>
                         
                     </nav>

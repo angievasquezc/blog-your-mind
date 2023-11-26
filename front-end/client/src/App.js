@@ -4,6 +4,7 @@ import './index.css'
 import { Login } from './Pages/credentials/login';
 import { Register } from './Pages/credentials/register';
 import { MyProfile } from './Pages/myProfile/myProfile';
+import { ArticleDetail } from './Pages/articleDetail/articleDetail';
 
 
 
@@ -18,6 +19,7 @@ function App() {
           <Route path='/Login' element={<Login></Login>}></Route>
           <Route path='/register' element={<Register></Register>}></Route>
           <Route path='/myProfile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='/articleDetail' element={<ArticleDetail></ArticleDetail>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
