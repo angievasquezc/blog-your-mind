@@ -5,6 +5,7 @@ import { Login } from './Pages/credentials/login';
 import { Register } from './Pages/credentials/register';
 import { MyProfile } from './Pages/myProfile/myProfile';
 import { ArticleDetail } from './Pages/articleDetail/articleDetail';
+import { NewArticle } from './Pages/newArticle/newArticle';
 
 
 
@@ -19,7 +20,8 @@ function App() {
           <Route path='/Login' element={<Login></Login>}></Route>
           <Route path='/register' element={<Register></Register>}></Route>
           <Route path='/myProfile' element={<MyProfile></MyProfile>}></Route>
-          <Route path='/articleDetail' element={<ArticleDetail></ArticleDetail>}></Route>
+          <Route path='/articleDetail/:id' element={<ArticleDetail></ArticleDetail>}></Route>
+          <Route path='/Article/new' element={<NewArticle></NewArticle>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
