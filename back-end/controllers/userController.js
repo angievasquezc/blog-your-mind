@@ -40,5 +40,15 @@ const loginUser = async(req, res)=>{
     // console.log(result)//esto me arroja null
 }
 
+const getOneUser = async (req,res)=>{
+    var idUser = req.params.idUser;
+    var user =  await User.findById(idUser)
 
-export {registerUser, loginUser}
+    res.status(200).json(user)
+}
+
+
+
+
+
+export {registerUser, loginUser, getOneUser}
