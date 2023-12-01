@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom"
 
 export const Register = ()=>{
     const[nameRegister, setNameRegister]= useState("")
+    const[rolRegister, setRolRegister]= useState("")
+    const[imageRegister, setImageRegister]= useState("")
     const[emailRegister, setEmailRegister]= useState("")
     const[passwordRegister, setPasswordRegister]= useState("")
     const[confirmPasswordRegister, setConfirmPasswordRegister]= useState("")
@@ -28,6 +30,8 @@ export const Register = ()=>{
         try{
             var obj={
                 "name": nameRegister,
+                "authorRol": rolRegister,
+                "image": imageRegister,
                 "email": emailRegister,
                 "password": passwordRegister
             };
@@ -47,12 +51,17 @@ export const Register = ()=>{
     return(
         <div className="flex min-h-full flex-col justify-center py-20">
             <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-                <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Register</h2>
+                <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign Up</h2>
             </div>
             <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm ">
                 <form className="space-y-6 " onSubmit={handleForm}>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-900">Name</label>
                     <input className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-5 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-5" type ="text" name="name" id="name" placeholder="enter your name" value={nameRegister} onChange={(e)=>setNameRegister(e.target.value)}></input>
+                    <label htmlFor="rol" className="block text-sm font-medium text-gray-900">Rol</label>
+                    <input className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-5 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-5" type ="text" name="rol" id="rol" placeholder="enter your rol" value={rolRegister} onChange={(e)=>setRolRegister(e.target.value)}></input>
+                    <label htmlFor="image" className="block text-sm font-medium text-gray-900">Image</label>
+                    <input className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-5 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-5" type ="text" name="image" id="image" placeholder="enter your image" value={imageRegister} onChange={(e)=>setImageRegister(e.target.value)}></input>
+                   
                     <label htmlFor="email" className="block text-sm font-medium text-gray-900">Email</label>
                     <input className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-5 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-5" type="email" name="email" id="email" placeholder="enter your email" value={emailRegister} onChange={(e)=>setEmailRegister(e.target.value)}></input>
                     <label htmlFor="password" className="block text-sm font-medium text-gray-900">Password</label>

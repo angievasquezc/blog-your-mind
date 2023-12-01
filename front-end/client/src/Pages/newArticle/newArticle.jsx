@@ -88,6 +88,7 @@ export const NewArticle= ()=>{
                         </select>
                         <input type="file" onChange={onImageChange} className="filetype" multiple/>
                         <img className="max-w-screen max-h-screen" alt="preview image" src={images}/>
+                       
 
                         <button className="flex w-full justify-center rounded-md bg-green-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 " onClick={createPost}>Create post</button>
                     </form>

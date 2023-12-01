@@ -2,26 +2,65 @@ import { useState } from "react"
 import { NavBar } from "../../Components/header/navBar"
 import { CommentImput } from "../../Components/comments/commentImput"
 import { AllComments } from "../../Components/comments/allComments"
+import { useNavigate, useParams } from "react-router-dom"
+import { useEffect } from "react"
+import axios from "axios"
 
 
 export const ArticleDetail= ()=>{
+    const[listData, setListData]=useState("")
+    const[title, setTitle]=useState("");
+    const[description, setDescription]=useState("");
+    const[author, setAuthor]=useState("");
+    const[images, setImages]=useState("");
+    const[date, setDate]=useState("");
+    const[category, setCategory]=useState("");
 
-    const[textArea, setTextArea]=useState("")
+    const params= useParams();
+    var postId = params.id;
+    const navigate= useNavigate();
 
-    const handleForm = (e)=>{
-        e.preventDefault()
-    }
+    useEffect(()=>{
+        getPostData()
+    },[]);
+
+   
+
+    const getPostData = async ()=>{
+        var response = await axios.get("http://localhost:8080/api/post/getOne/" + postId)
+        console.log(response);
+        setListData(response.data)
+      
+       
+     }
+
+
+    // useEffect(()=>{
+    //     getPostData()
+    // }, []);
+
+    // const getPostData = async()=>{
+    //     var result= await axios.get("http://localhost:8080/api/post/getOne/" + postId)
+    //     setTitle(result.data.title)
+    //     setDescription(result.data.description)
+    //     setAuthor(result.data.author)
+    //     setImages(result.data.images)
+    //     setDate(result.data.date)
+    //     setCategory(result.data.category)
+    
+    // }
 
     return (
         <div>
             <NavBar></NavBar>
+            
             <section className="max-w-4xl mx-auto p-10">
                     <article className=" mx-auto border-t  sm:mt-8 sm:pt-8  ">
                         <div className=" text-5xl text-center py-12 ">
                                 <h3 className=" font-semibold  text-gray-900 group-hover:text-gray-600 align-center">
                                 <a href="link">
                                     <span className="absolute inset-0" />
-                                    post title
+                                    {title}
                                 </a>
                                 </h3>
                         </div>
