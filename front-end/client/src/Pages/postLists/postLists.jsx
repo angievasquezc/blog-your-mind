@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react"
+import { Fragment, useEffect, useState } from "react"
 import { NavBar } from "../../Components/header/navBar"
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 
+
+
+
 export const PostList = ()=>{
 
+
     const[postList, setPostList]=useState([])
-    const [listPost, setListPost]=useState([]);
+    const[search, setSearch]=useState("")
     
 
     const navigate=useNavigate()
@@ -48,39 +52,46 @@ export const PostList = ()=>{
             alert("there was an error")
         }
     }
+    
+   
+
+   
 
     return(
         
-        <div >
+        <Fragment>
             <header>
                 <NavBar></NavBar>
             </header>
            
-            <body class="max-w-4xl mx-auto">
-                <div className="flex justify-between">
-                    <p className="text-3xl my-7 ">Search by category
-                        <select name="" id="" className="mx-10 border-solid border-2 border-black"> 
-                            <option value="">Art</option>
-                            <option value="">Travel</option>
-                            <option value="">Music</option>
-                            <option value="">Tourism</option>
-                            <option value="">Tech</option>
-                            <option value="">Photography</option>
-                        </select>
-                    </p>
+            <div class="max-w-4xl mx-auto">
+                <div className="flex justify-end">
+                    
                     <p onClick={addNew} className="text-3xl my-7 cursor-pointer">Add article</p>
+                </div>
+                <div className=" max-w-4xl mx-auto flex text-gray ml-64" >
+                        <input className="w-screen border-2 border-gray-300 ml-64 my-12" type="text" placeholder="Search"  value={search} onChange={(e)=>setSearch(e.target.value)}></input>
+                        <p className="text-2xl my-12" >🔍</p>
                 </div>
             
           
             <main className="max-w-3xl mx-auto p-4 flex-col justify-between items-center ">
             {
-                postList.map((item,idx)=>{
+                postList.filter((item)=>{
+                    return (
+                        
+                        search==="" ? item : item.description.toLowerCase().includes(search) || item.title.toLowerCase().includes(search) || item.category.toLowerCase().includes(search)
+                       
+                        
+
+                    )
+                }).map((item,idx)=>{
                     return(
                         <section key={idx} className="max-w-4xl mx-auto p-10 flex justify-between items-center">
-                        <article className=" mx-auto gap-y-5 border-t  sm:mt-4 sm:pt-1 ">
-                        <div className="max-w-4xl mx-auto p-10  flex justify-between ">
-                                <button  className="my-4 mx-4 w-full justify-center rounded-md bg-green-800 px-3 py-1 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-700 " >Update Post</button>
-                                <button onClick={()=> deletePost(item._id)} className="my-4  mx-4 w-full justify-center rounded-md bg-green-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 " >Delete Post</button>
+                        <article className=" mx-auto  border-t  border-gray-500  sm:pt-1 ">
+                        <div className="max-w-xs p-8  flex justify-items-start ">
+                                <button  className="my-2 mx-8 w-full justify-items-start rounded-md bg-purple-700 px-2 py-1 text-sm font-semibold  text-white shadow-sm hover:bg-purple-600 " >Update</button>
+                                <button onClick={()=> deletePost(item._id)} className="my-2  mx-6 w-full justify-items-start rounded-md bg-purple-700 px-2 py-1.5 text-sm font-semibold  text-white shadow-sm hover:bg-purple-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 " >Delete</button>
                                 
                             </div>
                             <div>
@@ -91,9 +102,9 @@ export const PostList = ()=>{
                                 <time className="text-gray-500">
                                 {item.created_at}
                                 </time>
-                                <select className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100" name="" id="">
-                                    <option value="">{item.category}</option>
-                                </select>
+                                <p className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100" >
+                                    {item.category}
+                                </p>
                        
                             </div>
                             <div className="group relative">
@@ -133,9 +144,9 @@ export const PostList = ()=>{
            
             </main>
 
-            </body>
+            </div>
             
-        </div>
+        </Fragment>
     )
         
     

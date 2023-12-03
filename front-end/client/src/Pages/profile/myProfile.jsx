@@ -7,8 +7,8 @@ export const MyProfile = ()=>{
         <div>
             <NavBar></NavBar>
             <div className="flex min-h-full flex-col justify-center py-20">
-            <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-                <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Profile</h2>
+            <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+                <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Profile</h2>
             </div>
             
            

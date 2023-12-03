@@ -18,6 +18,8 @@ export const Register = ()=>{
         e.preventDefault()
     }
 
+
+    
     const registerUser = async()=>{
         if (nameRegister =="" || emailRegister =="" || passwordRegister == "" || confirmPasswordRegister == ""){
             alert("complete the form");
@@ -35,7 +37,7 @@ export const Register = ()=>{
                 "email": emailRegister,
                 "password": passwordRegister
             };
-          var response= await axios.post("http://localhost:8080/api/user/register", obj)
+          var response= await axios.post("http://localhost:8080/auth/register", obj)
           if(response.status!= 200){
             alert("try again");
             return;

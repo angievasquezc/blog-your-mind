@@ -8,6 +8,8 @@ import { ArticleDetail } from './Pages/articleDetail/articleDetail';
 import { NewArticle } from './Pages/newArticle/newArticle';
 import { PostDetail } from './Pages/postDetail/postDetail';
 import { MyProfile } from './Pages/profile/myProfile';
+import { ListAuthors } from './Pages/Authores/listAuthors';
+
 
 
 
@@ -25,6 +27,8 @@ function App() {
           <Route path='/articleDetail/:id' element={<ArticleDetail></ArticleDetail>}></Route>
           <Route path='/Article/new' element={<NewArticle></NewArticle>}></Route>
           <Route path='/Article/:id' element={<PostDetail></PostDetail>}></Route>
+          <Route path='/Authors' element={<ListAuthors></ListAuthors>}></Route>
+         
         </Routes>
       </BrowserRouter>
     </div>

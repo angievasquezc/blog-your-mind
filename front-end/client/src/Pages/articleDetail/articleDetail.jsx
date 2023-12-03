@@ -35,20 +35,6 @@ export const ArticleDetail= ()=>{
      }
 
 
-    // useEffect(()=>{
-    //     getPostData()
-    // }, []);
-
-    // const getPostData = async()=>{
-    //     var result= await axios.get("http://localhost:8080/api/post/getOne/" + postId)
-    //     setTitle(result.data.title)
-    //     setDescription(result.data.description)
-    //     setAuthor(result.data.author)
-    //     setImages(result.data.images)
-    //     setDate(result.data.date)
-    //     setCategory(result.data.category)
-    
-    // }
 
     return (
         <div>

@@ -16,6 +16,26 @@ export const Login = ()=>{
     }
 
 
+    // const loginUser = async () => {
+    //     if(emailLogin == "" || passwordLogin == ""){
+    //         alert("Llene el formulario de Login");
+    //         return;
+    //     }
+
+    //     var obj = {
+    //         "email": emailLogin,
+    //         "password": passwordLogin
+    //     };
+
+    //     try{
+    //         var result = await axios.post("http://localhost:8080/api/user/login", obj);
+    //         localStorage.setItem("jwt", result.data);
+    //         localStorage.setItem("isLogged", true);
+    //         navigate("/");
+    //     }catch(e){
+    //         alert("Usuario o contraseña invalidos");
+    //     }
+    // }
     const loginUser= async()=>{
         if(emailLogin =="" || passwordLogin==""){
             alert("complete the form");
@@ -25,15 +45,16 @@ export const Login = ()=>{
             "email": emailLogin,
             "password": passwordLogin
     }
-
-    var result= await axios.post("http://localhost:8080/api/user/login", obj)
-    if(result.data != true){
+    try{
+        var result= await axios.post("http://localhost:8080/api/user/login", obj)
+            localStorage.setItem("jwt", result.data);
+            localStorage.setItem("isLogged", true);
+            navigate("/");
+    }catch(e){
         alert("wrong password or email");
-        return;
     }
-    //guardar un dato en el local storage que indique si está o no loggeado
-    localStorage.setItem("isLogged", true)
-        navigate("/")
+
+   
     
     };
    
