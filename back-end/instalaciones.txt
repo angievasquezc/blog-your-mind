@@ -9,5 +9,22 @@
 6) npm i bcrypt
 7) npm i jsonwebtoken
 8) package json = "type": "module"
+
+
+npm i -g nodemon = instalacion de nodemon global
+npm i express
+npm i body-parser
+npm i bcrypt
+npm i cors
+npm i dotenv
+npm i gridfs-stream (for file upload)
+multer
+multer-gridfs-storage
+helment (for request safety)
+morgan (for login)
+jsonwebtoken (authentication)
+mongoose (for mongo db access)
+
+npm i cookie-parser
     
 
